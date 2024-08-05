@@ -1,23 +1,20 @@
-<h1>Forecasting the quality of cloud services using an LSTM network</h1></div>
+<h1>Forecasting the quality of cloud services using LSTM networks: ML modeling process and experiment</h1></div>
 
 * * *
 This repository manages the files used in the experiments of the paper:
-_**Forecasting the quality of cloud services using an LSTM network**_
+_**Forecasting the quality of cloud services using LSTM networks: ML modeling process and experiment**_
 * * *
 
-<p align="center">
-    <a href="https://colab.research.google.com/drive/1Fa6seQ6PJU0jgMo7X1jeYzJzK2TmMzJS?usp=sharing">
-        <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-    </a>
-</p>
 
 The following section presents the results obtained for the 16 variables used to develop the experiment, as well as additional information related to them.
 
 ## Index {#Home}
 1. [Dataset](#datos)
-2. [LSTM Accuracy Metrics](#Metric)
-3. [ARIMA model predictions](#ARIMA)
-4. [LSTM model predictions](#LSTM)
+2. [Jupiter Notebook](#notebook)
+3. [LSTM Accuracy Metrics](#Metric)
+4. [ARIMA model predictions](#ARIMA)
+5. [LSTM model predictions](#LSTM)
+6. [AUTO ARIMA model predictions](#AUTOARIMA) 
 
 
 ## 1. Datasets {#Datos}
@@ -47,7 +44,20 @@ Representation of the **_datasets_**  with the observations of 16 QoS metrics ex
 
 [Index](#Home)
 
-## 2. LSTM Accuracy Metrics {#Metric}
+## 2. Jupiter Notebook {#notebook}
+The notebook is available on the link, and the directories required for execution are detailed on the readme.txt file
+
+<p align="center">
+    <a href="./experiment/lstm_univariado_uni_experiment_v4.ipynb">
+        <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+    </a>
+</p>
+
+The statistics used are available on the link <a href ="./experiment/ESEMv7.xlsx">  Model statistics </a>
+
+[Index](#Home)
+
+## 3. LSTM Accuracy Metrics {#Metric}
 LSTM model performance evaluation using accuracy metrics **_RMSE, MAE, MAPE_** 
 
 | Variable            | RMSE                                                                     | MAE                                                                     | MAPE                                                                     | 
@@ -119,7 +129,7 @@ Iteration 1 | ![Uptime_rmse.png](imgs/LSTM/metrics/fold_0_Uptime_rmse.png) | 	![
 
 [Index](#Home)
 
-## 3. ARIMA Model Prediction {#ARIMA}
+## 4. ARIMA Model Prediction {#ARIMA}
 ARIMA Model fitting with prequential cross-validation
 
 | Variable            | Iteration 1                | Iteration 2              | Iteration 3  | 
@@ -143,26 +153,41 @@ ARIMA Model fitting with prequential cross-validation
 
 [Index](#Home)
 
-## 4. LSTM Model Prediction {#LSTM}
+## 5. LSTM Model Prediction {#LSTM}
 LSTM Model fitting with prequential cross-validation
 
 | Variable            | Iteration 1                | Iteration 2              | Iteration 3  | 
 |---------------------|-----------------------|--------------------------------------|-----------------------|
-| Free Memory         |![Free Memory_test.png](imgs/LSTM/results/fold_0_Free%20Memory_train_result.png) | 	![Free Memory_test.png](imgs/LSTM/results/fold_1_Free%20Memory_train_result.png) | 	![Free Memory_test.png](imgs/LSTM/results/fold_2_Free%20Memory_train_result.png)| 
-| Used Memory         | ![Used Memory_test.png](imgs/LSTM/results/fold_0_Used%20Memory_train_result.png) | 	![Used Memory_test.png](imgs/LSTM/results/fold_1_Used%20Memory_train_result.png) | 	![Used Memory_test.png](imgs/LSTM/results/fold_2_Used%20Memory_train_result.png)|
-| Free Disk           | ![Free Disk_test.png](imgs/LSTM/results/fold_0_Free%20Disk_train_result.png) | 	![Free Disk_test.png](imgs/LSTM/results/fold_1_Free%20Disk_train_result.png) | 	![Free Disk_test.png](imgs/LSTM/results/fold_2_Free%20Disk_train_result.png) |  
-| Used Disk           | ![Used Disk_test.png](imgs/LSTM/results/fold_0_Used%20Disk_train_result.png) | 	![Used Disk_test.png](imgs/LSTM/results/fold_1_Used%20Disk_train_result.png) | 	![Used Disk_test.png](imgs/LSTM/results/fold_2_Used%20Disk_train_result.png) | 
-| Disk read/s         | ![Disk read_s_test.png](imgs/LSTM/results/fold_0_Disk%20read_s_train_result.png) | 	![Disk read_s_test.png](imgs/LSTM/results/fold_1_Disk%20read_s_train_result.png) | 	![Disk read_s_test.png](imgs/LSTM/results/fold_2_Disk%20read_s_train_result.png) | 
-| Disk write/s        | ![Disk write_s_test.png](imgs/LSTM/results/fold_0_Disk%20write_s_train_result.png) | 	![Disk write_s_test.png](imgs/LSTM/results/fold_1_Disk%20write_s_train_result.png) | 	![Disk write_s_test.png](imgs/LSTM/results/fold_2_Disk%20write_s_train_result.png) | 
-| NetBytes In   | ![NetBytes In_test.png](imgs/LSTM/results/fold_0_NetBytes%20In_train_result.png) | 	![NetBytes In_test.png](imgs/LSTM/results/fold_1_NetBytes%20In_train_result.png) | 	![NetBytes In_test.png](imgs/LSTM/results/fold_2_NetBytes%20In_train_result.png)| 
-| NetBytes Out        | ![NetBytes Out_test.png](imgs/LSTM/results/fold_0_NetBytes%20Out_train_result.png) | 	![NetBytes Out_test.png](imgs/LSTM/results/fold_1_NetBytes%20Out_train_result.png) | 	![NetBytes Out_test.png](imgs/LSTM/results/fold_2_NetBytes%20Out_train_result.png) | 
-| NetPackets In       | ![NetPackets In_test.png](imgs/LSTM/results/fold_0_NetPackets%20In_train_result.png) | 	![NetPackets In_test.png](imgs/LSTM/results/fold_1_NetPackets%20In_train_result.png) | 	![NetPackets In_test.png](imgs/LSTM/results/fold_2_NetPackets%20In_train_result.png) |
-| NetPackets Out      |   ![NetPackets Out_test.png](imgs/LSTM/results/fold_0_NetPackets%20Out_train_result.png) | 	![NetPackets Out_test.png](imgs/LSTM/results/fold_1_NetPackets%20Out_train_result.png) | 	![NetPackets Out_test.png](imgs/LSTM/results/fold_2_NetPackets%20Out_train_result.png) | 
-| Rx packets          | ![Rx packets_test.png](imgs/LSTM/results/fold_0_Rx%20packets_train_result.png) | 	![Rx packets_test.png](imgs/LSTM/results/fold_1_Rx%20packets_train_result.png) | 	![Rx packets_test.png](imgs/LSTM/results/fold_2_Rx%20packets_train_result.png) | 
-| Tx packets          | ![Tx packets_test.png](imgs/LSTM/results/fold_0_Tx%20packets_train_result.png) | 	![Tx packets_test.png](imgs/LSTM/results/fold_1_Tx%20packets_train_result.png) | 	![Tx packets_test.png](imgs/LSTM/results/fold_2_Tx%20packets_train_result.png) | 
-| CPU percent         | ![CPU percent_test.png](imgs/LSTM/results/fold_0_CPU%20percent_train_result.png) | 	![CPU percent_test.png](imgs/LSTM/results/fold_1_CPU%20percent_train_result.png) | 	![CPU percent_test.png](imgs/LSTM/results/fold_2_CPU%20percent_train_result.png)| 
-| Memory Used percent | ![Memory Used percent_test.png](imgs/LSTM/results/fold_0_Memory%20Used%20percent_train_result.png) | 	![Memory Used percent_test.png](imgs/LSTM/results/fold_1_Memory%20Used%20percent_train_result.png) | 	![Memory Used percent_test.png](imgs/LSTM/results/fold_2_Memory%20Used%20percent_train_result.png) | 
-| Disk Used percent   | ![Disk Used percent_test.png](imgs/LSTM/results/fold_0_Disk%20Used%20percent_train_result.png) | 	![Disk Used percent_test.png](imgs/LSTM/results/fold_1_Disk%20Used%20percent_train_result.png) | 	![Disk Used percent_test.png](imgs/LSTM/results/fold_2_Disk%20Used%20percent_train_result.png) | 
-| Uptime              | ![Uptime_test.png](imgs/LSTM/results/fold_0_Uptime_train_result.png) | 	![Uptime_test.png](imgs/LSTM/results/fold_1_Uptime_train_result.png) | 	![Uptime_test.png](imgs/LSTM/results/fold_2_Uptime_train_result.png) | 
+| Free Memory         |![Free Memory_test.png](imgs/LSTM/results/fold_1_Free%20Memory_train_result.png) | 	![Free Memory_test.png](imgs/LSTM/results/fold_2_Free%20Memory_train_result.png) | 	![Free Memory_test.png](imgs/LSTM/results/fold_3_Free%20Memory_train_result.png)| 
+| Used Memory         | ![Used Memory_test.png](imgs/LSTM/results/fold_1_Used%20Memory_train_result.png) | 	![Used Memory_test.png](imgs/LSTM/results/fold_2_Used%20Memory_train_result.png) | 	![Used Memory_test.png](imgs/LSTM/results/fold_3_Used%20Memory_train_result.png)|
+| Free Disk           | ![Free Disk_test.png](imgs/LSTM/results/fold_1_Free%20Disk_train_result.png) | 	![Free Disk_test.png](imgs/LSTM/results/fold_2_Free%20Disk_train_result.png) | 	![Free Disk_test.png](imgs/LSTM/results/fold_3_Free%20Disk_train_result.png) |  
+| Used Disk           | ![Used Disk_test.png](imgs/LSTM/results/fold_1_Used%20Disk_train_result.png) | 	![Used Disk_test.png](imgs/LSTM/results/fold_2_Used%20Disk_train_result.png) | 	![Used Disk_test.png](imgs/LSTM/results/fold_3_Used%20Disk_train_result.png) | 
+| Disk read/s         | ![Disk read_s_test.png](imgs/LSTM/results/fold_1_Disk%20read_s_train_result.png) | 	![Disk read_s_test.png](imgs/LSTM/results/fold_2_Disk%20read_s_train_result.png) | 	![Disk read_s_test.png](imgs/LSTM/results/fold_3_Disk%20read_s_train_result.png) | 
+| Disk write/s        | ![Disk write_s_test.png](imgs/LSTM/results/fold_1_Disk%20write_s_train_result.png) | 	![Disk write_s_test.png](imgs/LSTM/results/fold_2_Disk%20write_s_train_result.png) | 	![Disk write_s_test.png](imgs/LSTM/results/fold_3_Disk%20write_s_train_result.png) | 
+| NetBytes In   | ![NetBytes In_test.png](imgs/LSTM/results/fold_1_NetBytes%20In_train_result.png) | 	![NetBytes In_test.png](imgs/LSTM/results/fold_2_NetBytes%20In_train_result.png) | 	![NetBytes In_test.png](imgs/LSTM/results/fold_3_NetBytes%20In_train_result.png)| 
+| NetBytes Out        | ![NetBytes Out_test.png](imgs/LSTM/results/fold_1_NetBytes%20Out_train_result.png) | 	![NetBytes Out_test.png](imgs/LSTM/results/fold_2_NetBytes%20Out_train_result.png) | 	![NetBytes Out_test.png](imgs/LSTM/results/fold_3_NetBytes%20Out_train_result.png) | 
+| NetPackets In       | ![NetPackets In_test.png](imgs/LSTM/results/fold_1_NetPackets%20In_train_result.png) | 	![NetPackets In_test.png](imgs/LSTM/results/fold_2_NetPackets%20In_train_result.png) | 	![NetPackets In_test.png](imgs/LSTM/results/fold_3_NetPackets%20In_train_result.png) |
+| NetPackets Out      |   ![NetPackets Out_test.png](imgs/LSTM/results/fold_1_NetPackets%20Out_train_result.png) | 	![NetPackets Out_test.png](imgs/LSTM/results/fold_2_NetPackets%20Out_train_result.png) | 	![NetPackets Out_test.png](imgs/LSTM/results/fold_3_NetPackets%20Out_train_result.png) | 
+| Rx packets          | ![Rx packets_test.png](imgs/LSTM/results/fold_1_Rx%20packets_train_result.png) | 	![Rx packets_test.png](imgs/LSTM/results/fold_2_Rx%20packets_train_result.png) | 	![Rx packets_test.png](imgs/LSTM/results/fold_3_Rx%20packets_train_result.png) | 
+| Tx packets          | ![Tx packets_test.png](imgs/LSTM/results/fold_1_Tx%20packets_train_result.png) | 	![Tx packets_test.png](imgs/LSTM/results/fold_2_Tx%20packets_train_result.png) | 	![Tx packets_test.png](imgs/LSTM/results/fold_3_Tx%20packets_train_result.png) | 
+| CPU percent         | ![CPU percent_test.png](imgs/LSTM/results/fold_1_CPU%20percent_train_result.png) | 	![CPU percent_test.png](imgs/LSTM/results/fold_2_CPU%20percent_train_result.png) | 	![CPU percent_test.png](imgs/LSTM/results/fold_3_CPU%20percent_train_result.png)| 
+| Memory Used percent | ![Memory Used percent_test.png](imgs/LSTM/results/fold_1_Memory%20Used%20percent_train_result.png) | 	![Memory Used percent_test.png](imgs/LSTM/results/fold_2_Memory%20Used%20percent_train_result.png) | 	![Memory Used percent_test.png](imgs/LSTM/results/fold_3_Memory%20Used%20percent_train_result.png) | 
+| Disk Used percent   | ![Disk Used percent_test.png](imgs/LSTM/results/fold_1_Disk%20Used%20percent_train_result.png) | 	![Disk Used percent_test.png](imgs/LSTM/results/fold_2_Disk%20Used%20percent_train_result.png) | 	![Disk Used percent_test.png](imgs/LSTM/results/fold_3_Disk%20Used%20percent_train_result.png) | 
+| Uptime              | ![Uptime_test.png](imgs/LSTM/results/fold_1_Uptime_train_result.png) | 	![Uptime_test.png](imgs/LSTM/results/fold_2_Uptime_train_result.png) | 	![Uptime_test.png](imgs/LSTM/results/fold_3_Uptime_train_result.png) | 
 
 [Index](#Home)
+
+## 6. AUTOARIMA Model Prediction {#AUTOARIMA}
+ARIMA Model auto fitting with prequential cross-validation
+
+| Variable            | Iteration 1                | Iteration 2              | Iteration 3  | 
+|---------------------|-----------------------|--------------------------------------|-----------------------|
+| Free Memory         | ![FreeMemory_.png](imgs/AutoArima/Iteration-0_FreeMemory_test_result.jpg) | 	![FreeMemory_.png](imgs/AutoArima/Iteration-1_FreeMemory_test_result.jpg) | 	![FreeMemory_.png](imgs/AutoArima/Iteration-2_FreeMemory_test_result.jpg) | 
+| Used Memory         | ![UsedMemory_.png](imgs/AutoArima/Iteration-0_UsedMemory_test_result.jpg) | 	![UsedMemory_.png](imgs/AutoArima/Iteration-1_UsedMemory_test_result.jpg) | 	![UsedMemory_.png](imgs/AutoArima/Iteration-2_UsedMemory_test_result.jpg) |   
+| Free Disk           | ![FreeDisk_test.png](imgs/AutoArima/Iteration-0_FreeDisk_test_result.jpg) | 	![FreeDisk_test.png](imgs/AutoArima/Iteration-1_FreeDisk_test_result.jpg) | 	![FreeDisk_test.png](imgs/AutoArima/Iteration-2_FreeDisk_test_result.jpg) | 
+| Used Disk           | ![UsedDisk_test.png](imgs/AutoArima/Iteration-0_UsedDisk_test_result.jpg) | 	![UsedDisk_test.png](imgs/AutoArima/Iteration-1_UsedDisk_test_result.jpg) | 	![UsedDisk_test.png](imgs/AutoArima/Iteration-2_UsedDisk_test_result.jpg) | 
+| Disk read/s         | ![Diskreads_test.png](imgs/AutoArima/Iteration-0_Diskreads_test_result.jpg) | 	![Diskreads_test.png](imgs/AutoArima/Iteration-1_Diskreads_test_result.jpg) | 	![Diskreads_test.png](imgs/AutoArima/Iteration-2_Diskreads_test_result.jpg) | 
+
+
+[Index](#Home)
+
